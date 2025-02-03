@@ -1,0 +1,13 @@
+{% macro news_feed(posts) %}
+<div>
+  {% for post in posts %}
+    <div class="border border-gray-300 rounded-lg p-4 bg-white mt-4">
+      <h2 class="text-lg font-semibold">{{ post.title }}</h2>
+      <span class="inline-block px-2 py-1 text-xs font-semibold text-white bg-blue-500 rounded">{{ post.type }}</span>
+      <span class="text-sm text-gray-500">{{ post.date }}</span>
+      <p class="text-sm mt-3">{{ post.content }}</p>
+      <a href="{{ post.citation }}" class="text-sm text-gray-500 hover:text-blue-800 hover:underline" target="_blank">Read more</a>
+    </div>
+  {% endfor %}
+</div>
+{% endmacro %}

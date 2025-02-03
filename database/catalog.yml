@@ -1,0 +1,78 @@
+snowflake:
+  description: Snowflake Open Catalog
+  cloud: true
+  consumes_storage_interfaces:
+    s3_access_key:
+    s3_assume_role:
+    azure:
+    google_cloud_storage:
+  implements_catalog_interfaces:
+    iceberg_rest:
+      citations:
+        - https://docs.snowflake.com/en/user-guide/tables-iceberg-open-catalog
+
+nessie:
+  description: Apache Iceberg REST catalog with branching support
+  cloud: false
+  consumes_storage_interfaces:
+    s3_access_key:
+  implements_catalog_interfaces:
+    nessie:
+
+aws_glue:
+  description: Iceberg REST exposure of AWS Glue
+  cloud: true
+  consumes_storage_interfaces:
+    s3_assume_role:
+    s3_tables:
+  implements_catalog_interfaces:
+    iceberg_rest_sigv4:
+      citations:
+        - https://docs.aws.amazon.com/glue/latest/dg/access_catalog.html#w9aac20c29c11
+    hive_metastore:
+    aws_glue:
+
+polaris:
+  description: Apache / Snowflake-sponsored OSS catalog
+  cloud: false
+  consumes_storage_interfaces:
+    s3_access_key:
+    s3_assume_role:
+    azure:
+    google_cloud_storage:
+  implements_catalog_interfaces:
+    iceberg_rest:
+
+databricks:
+  cloud: true
+  consumes_storage_interfaces:
+    databricks_managed_storage:
+      citations:
+        - https://docs.databricks.com/en/external-access/index.html
+  implements_catalog_interfaces:
+    iceberg_rest:
+      citations:
+        - https://docs.databricks.com/en/external-access/iceberg.html
+
+tabular:
+  description: Does this still exist? Is it Arctic?
+
+lakekeeper:
+  description: Apache Rust OSS catalog
+  cloud: false
+  consumes_storage_interfaces:
+    s3_access_key:
+  implements_catalog_interfaces:
+    iceberg_rest:
+
+confluent:
+  description: Tableflow?
+  cloud: true
+
+dremio:
+  cloud: true
+
+cloudera:
+  cloud: true
+  citations:
+  - https://www.cloudera.com/about/news-and-blogs/press-releases/2024-08-06-cloudera-strengthens-metadata-management-with-modernized-data-catalog-and-iceberg-rest-integration.html

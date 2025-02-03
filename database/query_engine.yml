@@ -1,0 +1,144 @@
+snowflake:
+  name: Snowflake
+  cloud: true
+  consumes_storage_interfaces:
+    s3_access_key:
+    s3_assume_role:
+    azure:
+    google_cloud_storage:
+  consumes_catalog_interfaces:
+    iceberg_rest:
+    icebert_rest_sigv4:
+  supports_path_based_access: false
+
+presto:
+  name: Presto
+  cloud: false
+
+trino:
+  name: Trino
+  cloud: false
+  consumes_storage_interfaces:
+    s3_access_key:
+    azure_access_key:
+      description: Native Azure Storage, preferred over abfs
+      citations:
+        - https://trino.io/docs/current/object-storage/file-system-azure.html
+    azure_abfs:
+      description: Deprecated
+      citations:
+        - https://trino.io/docs/current/object-storage/legacy-azure.html
+    google_cloud_storage:
+  consumes_catalog_interfaces:
+    iceberg_rest:
+    hive_metastore:
+    aws_glue:
+    nessie:
+    jdbc_catalog:
+    snowflake:
+  supports_path_based_access: true
+
+duckdb:
+  name: DuckDB
+  cloud: false
+  consumes_storage_interfaces:
+    s3_access_key:
+    azure:
+    google_cloud_storage:
+  supports_path_based_access: true
+
+starburst:
+  name: Starburst
+  cloud: true
+
+spark:
+  name: Spark
+  cloud: false
+
+aws_athena:
+  name: AWS Athena
+  cloud: true
+
+aws_redshift:
+  name: AWS Redshift
+  cloud: true
+
+aws_redshift_serverless:
+  name: AWS Redshift Serverless
+  cloud: true
+
+databricks:
+  name: Databricks
+  cloud: true
+
+flink:
+  name: Flink
+  cloud: false
+
+impala:
+  name: Impala
+  cloud: false
+
+dataproc:
+  name: Dataproc
+  cloud: false
+
+google_bigquery:
+  name: Google BigQuery
+  cloud: true
+
+
+motherduck:
+  name: MotherDuck
+  cloud: true
+
+datafusion:
+  name: DataFusion
+  description: Not sure this directly talks to catalogs
+  cloud: false
+
+star_rocks:
+  name: StarRocks
+  description: Linux Foundation OSS
+  cloud: false
+
+kafka:
+  name: Kafka
+  cloud: false
+
+pyiceberg:
+  name: PyIceberg
+
+iceberg_rust:
+  name: Iceberg Rust
+
+dremio:
+  name: Dremio
+  cloud: true
+
+clickhouse:
+  name: ClickHouse
+  cloud: false
+  description: Supports Iceberg but not Iceberg REST
+
+microsoft_onelake:
+  name: Microsoft OneLake
+  cloud: true
+  description: Iceberg but not Iceberg REST
+  citations:
+    - https://learn.microsoft.com/en-us/fabric/onelake/onelake-iceberg-tables#write-an-iceberg-table-to-onelake-using-snowflake
+
+crunchy_data:
+  name: Crunchy Data
+  cloud: false
+  description: Possibly Iceberg but not Iceberg REST
+
+iomete:
+  name: Iomete
+  cloud: false
+  description: Spark wrapper?
+
+buster:
+  name: Buster
+  cloud: false
+  description: Built on starrocks

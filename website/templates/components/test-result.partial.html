@@ -1,0 +1,43 @@
+{% macro test_result(result) %}
+<div class="flex space-x-4 border border-gray-300 rounded-lg p-4 bg-white">
+  <div class="flex-none">
+    <div class="text-green-500 text-2xl">
+      {% if result.results.status == "success" %}
+        ✅
+      {% elif result.results.status == "compatible" %}
+        🤞
+      {% elif result.results.status == "partial" %}
+        ⚠️
+      {% else %}
+        ❌
+      {% endif %}
+    </div>
+    <span class="text-xs italic">{{ result.results.as_of }}</span>
+  </div>
+  <div class="flex-1">
+    <div class="text-sm font-medium">
+      <span class="text-gray-700">Storage Interface:</span> {{ result.storage_interface }}
+    </div>
+    <div class="text-sm font-medium">
+      <span class="text-gray-700">Catalog Interface:</span> {{ result.catalog_interface }}
+    </div>
+    <ul class="list-disc">
+      {% for test in result.results.tests %}
+        <li class="list-none"><span class="text-gray-500">
+          {% if test.status == "success" %}
+            ✅
+          {% else %}
+            ❌
+          {% endif %}
+          {{ test.test }}
+        </span></li>
+      {% endfor %}
+    </ul>
+  </div>
+  {% if result.results.explanation %}
+    <div class="flex-2 text-sm text-gray-600">
+      {{ result.results.explanation }}
+    </div>
+  {% endif %}
+</div>
+{% endmacro %}

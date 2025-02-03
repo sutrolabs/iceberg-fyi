@@ -1,0 +1,551 @@
+results:
+- catalog: nessie
+  catalog_interface: unknown
+  query_engine: trino
+  results:
+    as_of: '2025-02-06'
+    status: success
+    tests:
+    - status: success
+      test: test_create_catalog_table
+    - status: success
+      test: test_verify_data
+    - status: success
+      test: test_modify_data
+    - status: success
+      test: test_verify_modified_data
+    - status: success
+      test: test_drop_catalog_table
+    - status: success
+      test: test_advanced_create_table
+    - status: success
+      test: test_advanced_insert_data
+    - status: success
+      test: test_advanced_verify_data
+    - status: success
+      test: test_advanced_modify_data
+    - status: success
+      test: test_advanced_verify_modified_data
+  storage: cloudflare_r2
+  storage_interface: unknown
+- catalog: nessie
+  catalog_interface: unknown
+  query_engine: snowflake
+  results:
+    as_of: '2025-02-05'
+    explanation: 'Snowflake accepts the `CREATE CATALOG INTEGRATION` statement with
+      the pointer to the custom hosted Nessie catalog, but
+
+      it throws an error when calling `SELECT SYSTEM$VERIFY_CATALOG_INTEGRATION(...)`
+      complaining that the URI is
+
+      misformatted: "Only https URIs are supported by the catalog integration."
+
+      '
+    status: partial
+    tests:
+    - status: failed
+      test: test_create_catalog_table
+    - status: failed
+      test: test_verify_data
+    - status: failed
+      test: test_modify_data
+    - status: failed
+      test: test_verify_modified_data
+    - status: success
+      test: test_drop_catalog_table
+    - status: failed
+      test: test_advanced_create_table
+    - status: failed
+      test: test_advanced_insert_data
+    - status: failed
+      test: test_advanced_verify_data
+    - status: failed
+      test: test_advanced_modify_data
+    - status: failed
+      test: test_advanced_verify_modified_data
+  storage: s3
+  storage_interface: unknown
+- catalog: nessie
+  catalog_interface: unknown
+  query_engine: trino
+  results:
+    as_of: '2025-02-05'
+    status: success
+    tests:
+    - status: success
+      test: test_create_catalog_table
+    - status: success
+      test: test_verify_data
+    - status: success
+      test: test_modify_data
+    - status: success
+      test: test_verify_modified_data
+    - status: success
+      test: test_drop_catalog_table
+    - status: success
+      test: test_advanced_create_table
+    - status: success
+      test: test_advanced_insert_data
+    - status: success
+      test: test_advanced_verify_data
+    - status: success
+      test: test_advanced_modify_data
+    - status: success
+      test: test_advanced_verify_modified_data
+  storage: minio
+  storage_interface: unknown
+- catalog: aws_glue
+  catalog_interface: unknown
+  query_engine: trino
+  results:
+    as_of: '2025-02-05'
+    status: success
+    tests:
+    - status: success
+      test: test_create_catalog_table
+    - status: success
+      test: test_verify_data
+    - status: success
+      test: test_modify_data
+    - status: success
+      test: test_verify_modified_data
+    - status: success
+      test: test_drop_catalog_table
+    - status: success
+      test: test_advanced_create_table
+    - status: success
+      test: test_advanced_insert_data
+    - status: success
+      test: test_advanced_verify_data
+    - status: success
+      test: test_advanced_modify_data
+    - status: success
+      test: test_advanced_verify_modified_data
+  storage: s3
+  storage_interface: unknown
+- catalog: nessie
+  catalog_interface: unknown
+  query_engine: trino
+  results:
+    as_of: '2025-02-05'
+    status: success
+    tests:
+    - status: success
+      test: test_create_catalog_table
+    - status: success
+      test: test_link_table
+    - status: success
+      test: test_verify_data
+    - status: success
+      test: test_modify_data
+    - status: success
+      test: test_verify_modified_data
+    - status: success
+      test: test_unlink_table
+    - status: success
+      test: test_advanced_create_schema
+    - status: success
+      test: test_advanced_create_table
+    - status: success
+      test: test_advanced_insert_data
+    - status: success
+      test: test_advanced_verify_data
+    - status: success
+      test: test_advanced_modify_data
+    - status: success
+      test: test_advanced_verify_modified_data
+  storage: s3
+  storage_interface: unknown
+- catalog: aws_glue
+  catalog_interface: unknown
+  query_engine: snowflake
+  results:
+    as_of: '2025-02-05'
+    status: partial
+    tests:
+    - status: success
+      test: test_create_catalog_table
+    - status: success
+      test: test_verify_data
+    - status: failed
+      test: test_modify_data
+    - status: failed
+      test: test_verify_modified_data
+    - status: success
+      test: test_drop_catalog_table
+    - status: failed
+      test: test_advanced_create_table
+    - status: failed
+      test: test_advanced_insert_data
+    - status: failed
+      test: test_advanced_verify_data
+    - status: failed
+      test: test_advanced_modify_data
+    - status: failed
+      test: test_advanced_verify_modified_data
+  storage: s3
+  storage_interface: unknown
+- catalog: nessie
+  catalog_interface: iceberg_rest
+  query_engine: trino
+  results:
+    as_of: '2025-02-05'
+    status: success
+    tests:
+    - status: success
+      test: test_create_catalog_table
+    - status: success
+      test: test_link_table
+    - status: success
+      test: test_verify_data
+    - status: success
+      test: test_modify_data
+    - status: success
+      test: test_verify_modified_data
+    - status: success
+      test: test_unlink_table
+    - status: success
+      test: test_advanced_create_schema
+    - status: success
+      test: test_advanced_create_table
+    - status: success
+      test: test_advanced_insert_data
+    - status: success
+      test: test_advanced_verify_data
+    - status: success
+      test: test_advanced_modify_data
+    - status: success
+      test: test_advanced_verify_modified_data
+  storage: azure
+  storage_interface: azure_abfs
+- catalog: nessie
+  catalog_interface: iceberg_rest
+  query_engine: trino
+  results:
+    as_of: '2025-02-05'
+    explanation: This combination should work, but we haven't tested it yet!
+    status: compatible
+    tests: []
+  storage: azure
+  storage_interface: azure_abfs
+- catalog: snowflake
+  catalog_interface: iceberg_rest
+  query_engine: snowflake
+  results:
+    as_of: '2025-02-06'
+    explanation: This combination should work, but we haven't tested it yet!
+    status: compatible
+    tests: []
+  storage: s3
+  storage_interface: s3_access_key
+- catalog: polaris
+  catalog_interface: iceberg_rest
+  query_engine: snowflake
+  results:
+    as_of: '2025-02-06'
+    explanation: This combination should work, but we haven't tested it yet!
+    status: compatible
+    tests: []
+  storage: s3
+  storage_interface: s3_access_key
+- catalog: lakekeeper
+  catalog_interface: iceberg_rest
+  query_engine: snowflake
+  results:
+    as_of: '2025-02-06'
+    explanation: This combination should work, but we haven't tested it yet!
+    status: compatible
+    tests: []
+  storage: s3
+  storage_interface: s3_access_key
+- catalog: snowflake
+  catalog_interface: iceberg_rest
+  query_engine: snowflake
+  results:
+    as_of: '2025-02-06'
+    explanation: This combination should work, but we haven't tested it yet!
+    status: compatible
+    tests: []
+  storage: minio
+  storage_interface: s3_access_key
+- catalog: polaris
+  catalog_interface: iceberg_rest
+  query_engine: snowflake
+  results:
+    as_of: '2025-02-06'
+    explanation: This combination should work, but we haven't tested it yet!
+    status: compatible
+    tests: []
+  storage: minio
+  storage_interface: s3_access_key
+- catalog: lakekeeper
+  catalog_interface: iceberg_rest
+  query_engine: snowflake
+  results:
+    as_of: '2025-02-06'
+    explanation: This combination should work, but we haven't tested it yet!
+    status: compatible
+    tests: []
+  storage: minio
+  storage_interface: s3_access_key
+- catalog: snowflake
+  catalog_interface: iceberg_rest
+  query_engine: snowflake
+  results:
+    as_of: '2025-02-06'
+    explanation: This combination should work, but we haven't tested it yet!
+    status: compatible
+    tests: []
+  storage: cloudflare_r2
+  storage_interface: s3_access_key
+- catalog: polaris
+  catalog_interface: iceberg_rest
+  query_engine: snowflake
+  results:
+    as_of: '2025-02-06'
+    explanation: This combination should work, but we haven't tested it yet!
+    status: compatible
+    tests: []
+  storage: cloudflare_r2
+  storage_interface: s3_access_key
+- catalog: lakekeeper
+  catalog_interface: iceberg_rest
+  query_engine: snowflake
+  results:
+    as_of: '2025-02-06'
+    explanation: This combination should work, but we haven't tested it yet!
+    status: compatible
+    tests: []
+  storage: cloudflare_r2
+  storage_interface: s3_access_key
+- catalog: snowflake
+  catalog_interface: iceberg_rest
+  query_engine: snowflake
+  results:
+    as_of: '2025-02-06'
+    explanation: This combination should work, but we haven't tested it yet!
+    status: compatible
+    tests: []
+  storage: backblaze_b2
+  storage_interface: s3_access_key
+- catalog: polaris
+  catalog_interface: iceberg_rest
+  query_engine: snowflake
+  results:
+    as_of: '2025-02-06'
+    explanation: This combination should work, but we haven't tested it yet!
+    status: compatible
+    tests: []
+  storage: backblaze_b2
+  storage_interface: s3_access_key
+- catalog: lakekeeper
+  catalog_interface: iceberg_rest
+  query_engine: snowflake
+  results:
+    as_of: '2025-02-06'
+    explanation: This combination should work, but we haven't tested it yet!
+    status: compatible
+    tests: []
+  storage: backblaze_b2
+  storage_interface: s3_access_key
+- catalog: snowflake
+  catalog_interface: iceberg_rest
+  query_engine: snowflake
+  results:
+    as_of: '2025-02-06'
+    explanation: This combination should work, but we haven't tested it yet!
+    status: compatible
+    tests: []
+  storage: google_cloud_storage
+  storage_interface: google_cloud_storage
+- catalog: polaris
+  catalog_interface: iceberg_rest
+  query_engine: snowflake
+  results:
+    as_of: '2025-02-06'
+    explanation: This combination should work, but we haven't tested it yet!
+    status: compatible
+    tests: []
+  storage: google_cloud_storage
+  storage_interface: google_cloud_storage
+- catalog: snowflake
+  catalog_interface: iceberg_rest
+  query_engine: trino
+  results:
+    as_of: '2025-02-06'
+    explanation: This combination should work, but we haven't tested it yet!
+    status: compatible
+    tests: []
+  storage: s3
+  storage_interface: s3_access_key
+- catalog: nessie
+  catalog_interface: nessie
+  query_engine: trino
+  results:
+    as_of: '2025-02-06'
+    explanation: This combination should work, but we haven't tested it yet!
+    status: compatible
+    tests: []
+  storage: s3
+  storage_interface: s3_access_key
+- catalog: polaris
+  catalog_interface: iceberg_rest
+  query_engine: trino
+  results:
+    as_of: '2025-02-06'
+    explanation: This combination should work, but we haven't tested it yet!
+    status: compatible
+    tests: []
+  storage: s3
+  storage_interface: s3_access_key
+- catalog: lakekeeper
+  catalog_interface: iceberg_rest
+  query_engine: trino
+  results:
+    as_of: '2025-02-06'
+    explanation: This combination should work, but we haven't tested it yet!
+    status: compatible
+    tests: []
+  storage: s3
+  storage_interface: s3_access_key
+- catalog: snowflake
+  catalog_interface: iceberg_rest
+  query_engine: trino
+  results:
+    as_of: '2025-02-06'
+    explanation: This combination should work, but we haven't tested it yet!
+    status: compatible
+    tests: []
+  storage: minio
+  storage_interface: s3_access_key
+- catalog: nessie
+  catalog_interface: nessie
+  query_engine: trino
+  results:
+    as_of: '2025-02-06'
+    explanation: This combination should work, but we haven't tested it yet!
+    status: compatible
+    tests: []
+  storage: minio
+  storage_interface: s3_access_key
+- catalog: polaris
+  catalog_interface: iceberg_rest
+  query_engine: trino
+  results:
+    as_of: '2025-02-06'
+    explanation: This combination should work, but we haven't tested it yet!
+    status: compatible
+    tests: []
+  storage: minio
+  storage_interface: s3_access_key
+- catalog: lakekeeper
+  catalog_interface: iceberg_rest
+  query_engine: trino
+  results:
+    as_of: '2025-02-06'
+    explanation: This combination should work, but we haven't tested it yet!
+    status: compatible
+    tests: []
+  storage: minio
+  storage_interface: s3_access_key
+- catalog: snowflake
+  catalog_interface: iceberg_rest
+  query_engine: trino
+  results:
+    as_of: '2025-02-06'
+    explanation: This combination should work, but we haven't tested it yet!
+    status: compatible
+    tests: []
+  storage: cloudflare_r2
+  storage_interface: s3_access_key
+- catalog: nessie
+  catalog_interface: nessie
+  query_engine: trino
+  results:
+    as_of: '2025-02-06'
+    explanation: This combination should work, but we haven't tested it yet!
+    status: compatible
+    tests: []
+  storage: cloudflare_r2
+  storage_interface: s3_access_key
+- catalog: polaris
+  catalog_interface: iceberg_rest
+  query_engine: trino
+  results:
+    as_of: '2025-02-06'
+    explanation: This combination should work, but we haven't tested it yet!
+    status: compatible
+    tests: []
+  storage: cloudflare_r2
+  storage_interface: s3_access_key
+- catalog: lakekeeper
+  catalog_interface: iceberg_rest
+  query_engine: trino
+  results:
+    as_of: '2025-02-06'
+    explanation: This combination should work, but we haven't tested it yet!
+    status: compatible
+    tests: []
+  storage: cloudflare_r2
+  storage_interface: s3_access_key
+- catalog: snowflake
+  catalog_interface: iceberg_rest
+  query_engine: trino
+  results:
+    as_of: '2025-02-06'
+    explanation: This combination should work, but we haven't tested it yet!
+    status: compatible
+    tests: []
+  storage: backblaze_b2
+  storage_interface: s3_access_key
+- catalog: nessie
+  catalog_interface: nessie
+  query_engine: trino
+  results:
+    as_of: '2025-02-06'
+    explanation: This combination should work, but we haven't tested it yet!
+    status: compatible
+    tests: []
+  storage: backblaze_b2
+  storage_interface: s3_access_key
+- catalog: polaris
+  catalog_interface: iceberg_rest
+  query_engine: trino
+  results:
+    as_of: '2025-02-06'
+    explanation: This combination should work, but we haven't tested it yet!
+    status: compatible
+    tests: []
+  storage: backblaze_b2
+  storage_interface: s3_access_key
+- catalog: lakekeeper
+  catalog_interface: iceberg_rest
+  query_engine: trino
+  results:
+    as_of: '2025-02-06'
+    explanation: This combination should work, but we haven't tested it yet!
+    status: compatible
+    tests: []
+  storage: backblaze_b2
+  storage_interface: s3_access_key
+- catalog: snowflake
+  catalog_interface: iceberg_rest
+  query_engine: trino
+  results:
+    as_of: '2025-02-06'
+    explanation: This combination should work, but we haven't tested it yet!
+    status: compatible
+    tests: []
+  storage: google_cloud_storage
+  storage_interface: google_cloud_storage
+- catalog: polaris
+  catalog_interface: iceberg_rest
+  query_engine: trino
+  results:
+    as_of: '2025-02-06'
+    explanation: This combination should work, but we haven't tested it yet!
+    status: compatible
+    tests: []
+  storage: google_cloud_storage
+  storage_interface: google_cloud_storage

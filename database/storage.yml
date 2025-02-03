@@ -1,0 +1,29 @@
+s3:
+  implements_storage_interfaces:
+    s3_access_key:
+
+s3_tables:
+  implements_storage_interfaces:
+    s3_tables:
+
+minio:
+  implements_storage_interfaces:
+    s3_access_key:
+
+cloudflare_r2:
+  implements_storage_interfaces:
+    s3_access_key:
+
+backblaze_b2:
+  implements_storage_interfaces:
+    s3_access_key:
+
+azure:
+  implements_storage_interfaces:
+    azure_access_key:
+    azure_oauth:
+    azure_abfs:
+
+google_cloud_storage:
+  implements_storage_interfaces:
+    google_cloud_storage:

@@ -1,0 +1,4 @@
+{
+  "editor.tabSize": 4,
+  "black-formatter.path": ["./.venv/bin/python", "-m", "black"]
+}

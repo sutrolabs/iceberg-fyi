@@ -1,0 +1,23 @@
+posts:
+  - title: "Snowflake supports S3-compatible object stores, with review"
+    date: 2025-02-05
+    type: insight
+    related_to:
+      - "query_engine:snowflake"
+
+    content: |
+      It looks like Snowflake has added support for S3-compatible object stores, but you'll need to have their
+      support team review your request first. The review process took less than 24 hours in our experience.
+    citation: "https://community.snowflake.com/s/article/Creating-a-new-s3compat-stage-fails-with-the-error-Endpoint-endpoint-not-allowed"
+  - title: "Nessie Collaborating with Polaris"
+    date: 2024-08-02
+    type: news
+    related_to:
+      - "catalog:nessie"
+      - "catalog:polaris"
+
+    content: |
+      The Nessie team has announced they'll be collaborating with Polaris to contribute to the Polaris project.
+      They specifically mention that like Catalog Level Versioning, Git-like semantics, multi-table transaction
+      semantics to Polaris.
+    citation: "https://projectnessie.org/blog/2024/08/02/open-source-polaris-announcement/"

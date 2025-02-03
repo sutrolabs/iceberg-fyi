@@ -1,0 +1,6 @@
+# Things that don't directly act as a query engine, catalog, or store, but use
+# Iceberg technology
+
+buster:
+
+iomete:

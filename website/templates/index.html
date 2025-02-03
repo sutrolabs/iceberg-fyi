@@ -1,0 +1,104 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mx-auto px-4 py-8">
+  <div class="text-center">
+    <img src="/static/fluxberg-logo.svg" class="w-20 h-20 inline-block">
+    <a href="/" class="{% if test_results is none %}text-gray-600{% elif test_results|length == 0 %}text-yellow-500{% else %}text-green-500{% endif %}">
+        <h1 class="text-5xl font-bold">Iceberg FYI</h1>
+    </a>
+    <p class="text-sm text-gray-500 mt-2">
+      Verified test results for 100+ combinations of tools in the <a href="https://iceberg.apache.org/" class="text-blue-500 hover:text-blue-700" target="_blank">Apache Iceberg</a> ecosystem
+    </p>
+  </div>
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-10">
+
+        <!-- Compute Engine Column -->
+        <div class="bg-white border border-gray-300 rounded-lg p-4">
+            <h2 class="text-xl font-semibold mb-2">Query Engine</h2>
+            <p class="text-sm text-gray-500 mb-4">The service that runs your SQL queries</p>
+            <select
+                class="w-full p-2 border border-gray-300 rounded-md bg-white"
+                name="query_engines"
+                onchange="updateSelection(this, 'query_engine')"
+            >
+                <option value="">Select Query Engine</option>
+                {% for engine in query_engines %}
+                    <option value="{{ engine }}" {% if request.query_params.get('query_engine') == engine %}selected{% endif %}>
+                        {{ engine |replace("_"," ")|title }} {% if metrics.query_engine_metrics[engine] and request.query_params.get('query_engine') != engine %}({{ metrics.query_engine_metrics[engine] }}){% endif %}
+                    </option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <!-- Catalog Column -->
+        <div class="bg-white border border-gray-300 rounded-lg p-4">
+            <h2 class="text-xl font-semibold mb-2">Catalog</h2>
+            <p class="text-sm text-gray-500 mb-4">The Iceberg Catalog that manages your tables</p>
+            <select
+                class="w-full p-2 border border-gray-300 rounded-md bg-white"
+                name="catalog"
+                onchange="updateSelection(this, 'catalog')"
+            >
+                <option value="">Select Catalog</option>
+                {% for catalog in catalogs %}
+                    <option value="{{ catalog }}" {% if request.query_params.get('catalog') == catalog %}selected{% endif %}>
+                        {{ catalog |replace("_"," ")|title }} {% if metrics.catalog_metrics[catalog] and request.query_params.get('catalog') != catalog %}({{ metrics.catalog_metrics[catalog] }}){% endif %}
+                    </option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <!-- Object Store Column -->
+        <div class="bg-white border border-gray-300 rounded-lg p-4">
+            <h2 class="text-xl font-semibold mb-2">Object Store</h2>
+            <p class="text-sm text-gray-500 mb-4">The storage backend for your tables</p>
+            <select
+                class="w-full p-2 border border-gray-300 rounded-md bg-white"
+                name="object_store"
+                onchange="updateSelection(this, 'object_store')"
+            >
+                <option value="">Select Object Store</option>
+                {% for store in object_stores %}
+                    <option value="{{ store }}" {% if request.query_params.get('object_store') == store %}selected{% endif %}>
+                        {{ store |replace("_"," ")|title }} {% if metrics.object_store_metrics[store] and request.query_params.get('object_store') != store %}({{ metrics.object_store_metrics[store] }}){% endif %}
+                    </option>
+                {% endfor %}
+            </select>
+        </div>
+    </div>
+
+    <div class="mt-5">
+      {% if test_results is none %}
+        <p class="mt-15 text-lg font-semibold text-center">Select your stack</p>
+        <p class="text-center  mb-20">
+          Or see a random one:
+          <span class="text-2xl inline-block" onmousedown="this.classList.add('animate-spin');"><a href="/random">🎲</a></span>
+        </p>
+
+      {% elif test_results|length == 0 %}
+        <p class="mt-15 text-lg font-semibold text-yellow-500 text-center">No test results yet</p>
+        <p class="text-center mt-4 mb-20"><a href="https://github.com/sutrolabs/iceberg-fyi/issues/new?title={{ 'Please test ' + request.query_params.get('query_engine') + ' with ' + request.query_params.get('catalog') + ' and ' + request.query_params.get('object_store') }}" class="text-gray-600 hover:text-blue-800 hover:underline" target="_blank">Let us know if you want to see this stack tested!</a></p>
+      {% else %}
+        {% from "components/test-result.partial.html" import test_result %}
+        {% for result in test_results %}
+          {{ test_result(result) }}
+        {% endfor %}
+      {% endif %}
+    </div>
+
+    <div class="mt-10">
+      {% from "components/news.partial.html" import news_feed %}
+      {{ news_feed(posts) }}
+    </div>
+</div>
+
+<script>
+function updateSelection(selectElement, name) {
+    const value = selectElement.value;
+    const url = new URL(window.location.href);
+    url.searchParams.set(name, value);
+    window.location.href = url; // Redirect to the updated URL
+}
+</script>
+{% endblock %}

@@ -1,0 +1,25 @@
+[project]
+name = "icebergfyi"
+version = "0.1.0"
+description = "Iceberg stack testing suite and results explorer"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "aiobotocore>=2.19.0",
+    "click>=8.1.8",
+    "pytest>=8.3.4",
+    "trino>=0.333.0",
+    "black>=25.1.0",
+    "boto3>=1.36.0",
+    "botocore>=1.36.0",
+    "pyiceberg>=0.8.1",
+    "docker>=7.1.0",
+    "snowflake-connector-python>=3.13.2",
+    "s3fs>=2025.2.0",
+    "pyarrow>=19.0.0",
+    "azure-mgmt-storage>=22.0.0",
+    "azure-storage-blob>=12.24.1",
+    "azure-identity>=1.19.0",
+    "adlfs>=2024.12.0",
+    "python-dotenv>=1.0.1",
+]

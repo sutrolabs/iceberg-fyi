@@ -1,0 +1,22 @@
+iceberg_rest:
+  description: The Way of the Future
+
+iceberg_rest_sigv4:
+  description: Iceberg REST with AWS auth
+
+hive_metastore:
+  description: Thrift RPC
+
+aws_glue:
+  description: Documented but proprietary AWS APIs
+
+nessie:
+  description: It's git for data!
+
+jdbc_catalog:
+  description: ChatGPT swears this is a real thing
+
+snowflake:
+  description: Snowflake Catalog SDK
+  citations:
+    - https://docs.snowflake.com/en/user-guide/tables-iceberg-catalog
