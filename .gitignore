@@ -9,3 +9,4 @@ build
 htmlcov
 __pycache__
 .env
+.python-version
