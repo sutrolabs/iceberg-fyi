@@ -99,7 +99,7 @@ async def index(request: Request):
         "catalogs": catalogs,
         "test_results": test_results,
         "metrics": metrics,
-        "posts": filtered_posts
+        "posts": filtered_posts[:5]
     })
 
 @app.get("/random")

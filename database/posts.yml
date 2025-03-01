@@ -1,21 +1,48 @@
 posts:
+  - title: "AWS S3 SDK update breaks compatibility with S3-compatible services"
+    date: 2025-02-20
+    type: insight
+    related_to:
+      - "storage:s3"
+    content: |
+      AWS recently introduced default data integrity protections with strong integrity checksums
+      in their S3 SDKs, which has broken compatibility with nearly all S3-compatible services
+      including pre-2025 Minio, Vast, Dell EC, Cloudflare R2, and Tigris.
+
+      The Apache Iceberg community has raised a PR to disable these checksums, and Trino project
+      also had to temporarily disable the checks after receiving error reports.
+
+      Turns out reusing AWS SDKs is probably not a good idea.
+    citation: "https://xuanwo.io/links/2025/02/aws_s3_sdk_breaks_its_compatible_services/"
+  - title: "Access Iceberg tables in S3 Tables using PyIceberg and AWS Glue"
+    date: 2025-02-17
+    type: tutorial
+    related_to:
+      - "storage:s3_tables"
+      - "catalog:aws_glue"
+      - "query_engine:pyiceberg"
+    content: |
+      AWS now offers Iceberg REST support for AWS Glue catalogs and with S3 Tables. They wrote a nice
+      tutorial showing how to use PyIceberg (the official Python client for Iceberg) to create, query,
+      and update tables stored in S3 Tables.
+    citation: "https://aws.amazon.com/blogs/storage/access-data-in-amazon-s3-tables-using-pyiceberg-through-the-aws-glue-iceberg-rest-endpoint/"
+
   - title: "Snowflake supports S3-compatible object stores, with review"
     date: 2025-02-05
     type: insight
     related_to:
       - "query_engine:snowflake"
-
     content: |
       It looks like Snowflake has added support for S3-compatible object stores, but you'll need to have their
       support team review your request first. The review process took less than 24 hours in our experience.
     citation: "https://community.snowflake.com/s/article/Creating-a-new-s3compat-stage-fails-with-the-error-Endpoint-endpoint-not-allowed"
+
   - title: "Nessie Collaborating with Polaris"
     date: 2024-08-02
     type: news
     related_to:
       - "catalog:nessie"
       - "catalog:polaris"
-
     content: |
       The Nessie team has announced they'll be collaborating with Polaris to contribute to the Polaris project.
       They specifically mention that like Catalog Level Versioning, Git-like semantics, multi-table transaction
